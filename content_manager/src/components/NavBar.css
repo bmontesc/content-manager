@@ -1,8 +1,17 @@
 .navbar {
-  background-color: cornflowerblue;
+  background-color: #21689d;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
 }
 
 .navbar h1 {
-  margin-top: 0;
+  color: white;
+  margin: 0;
   padding: 10px 5px;
+}
+
+.navbar img {
+  max-height: 20px;
+  padding: 0 20px;
 }
