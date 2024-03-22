@@ -1,0 +1,10 @@
+.general-view-body {
+  max-width: 1200px;
+  margin: auto;
+}
+
+input {
+  width: 1100px;
+  padding: 10px;
+  margin: 10px 20px;
+}
