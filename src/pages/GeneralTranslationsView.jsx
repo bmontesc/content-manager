@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { Table } from "../components/Table"
-import { getContents, getCountries, getStatuses, getBuyerProfiles } from "../data/getData"
+import { getTranslatedContents, getCountries, getStatuses, getBuyerProfiles } from "../data/getData"
 import './GeneralView.css'
 import { FilterDropdown } from "../components/FilterDropdown"
 
-export const GeneralView = () => {
+export const GeneralTranslationsView = () => {
 
     const [data, setData] = useState([])
     const [ countries, setCountries ] = useState([])
@@ -34,7 +34,7 @@ export const GeneralView = () => {
 
     const fetchFilteredData = async (country, buyerProfile, status, page = 1) => {
         try {
-            const data = await getContents(country, buyerProfile, status, page);
+            const data = await getTranslatedContents(country, buyerProfile, status, page);
             setData(data)
             setDataLoaded(true)
         } catch (error) {
@@ -88,7 +88,7 @@ export const GeneralView = () => {
 
     return(
         <div className="general-view-body">
-            <h2>Parent Content</h2>
+            <h2>Translated Content</h2>
             <input type="text" name="" id="" placeholder="🔎 Search by title..." />
             <div className="filters">
                 <FilterDropdown attribute='Buyer_Profile' options={buyerProfiles} onSelect={selectOption}/>  

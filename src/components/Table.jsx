@@ -1,5 +1,6 @@
 import './Table.css'
 import { Link } from 'react-router-dom'
+import { TextLabel } from './TextLabel';
 
 export const Table = (props) => {
     let { headers, data } = props
@@ -12,7 +13,7 @@ export const Table = (props) => {
             <thead>
                 <tr>
                     {headers.map(header => (
-                        <th key={header}>{header}</th>
+                        <th key={header}><TextLabel text={header}/></th>
                     ))}
                 </tr>
             </thead>

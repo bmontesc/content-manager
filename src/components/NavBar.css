@@ -2,6 +2,13 @@
   background-color: #21689d;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
   align-items: baseline;
 }
 
@@ -14,4 +21,20 @@
 .navbar img {
   max-height: 20px;
   padding: 0 20px;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+}
+
+.links h3 {
+  color: white;
+  padding: 5px 10px;
+  margin: 0 10px;
+}
+
+.links h3:hover{
+  background-color: #17496f;
+  border-radius: 10px;
 }
