@@ -5,11 +5,11 @@ export const DataGrid = (props) => {
     const { data } = props
     let headers = data ? Object.keys(data) : [];
 
-    headers = headers.filter(header => header !== 'id' && header !== 'title')
+    headers = headers.filter(header => header !== 'id' && header !== 'Title')
 
     return (
         <>
-            <h1>{data['title']}</h1>
+            <h1>{data['Title']}</h1>
             <div className='data-grid'>
                 {headers.map(header => <Data key={header} title={header} content={data[header]}/>)}
             </div>

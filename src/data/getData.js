@@ -1,6 +1,6 @@
 const apiURL = 'https://content-manager-ihgp4c2pia-no.a.run.app'
 
-export const getContents = (country = null, buyerProfile = null, status = null, pag = 1) => {
+export const getContents = (country = null, buyerProfile = null, status = null, pag = 0) => {
 
     let url = apiURL + '/contents?'
     if (country !== null && country !== '---') url = url + `code_country=${country}&`
@@ -8,6 +8,8 @@ export const getContents = (country = null, buyerProfile = null, status = null, 
     if (status !== null && status !== '---') url = url + `status=${status}&`
 
     url = url + 'pag=' + pag
+
+    console.log(url)
 
     return fetch(`${url}`)
     .then(response => {
@@ -74,7 +76,7 @@ export const getBuyerProfiles = () => {
       });
 }
 
-export const getTranslatedContents = (country = null, buyerProfile = null, status = null, pag = 1) => {
+export const getTranslatedContents = (country = null, buyerProfile = null, status = null, pag = 0) => {
 
     let url = apiURL + '/contents/translations?'
     if (country !== null && country !== '---') url = url + `code_country=${country}&`

@@ -6,7 +6,7 @@ import { FilterDropdown } from "../components/FilterDropdown"
 
 export const GeneralView = () => {
 
-    const [data, setData] = useState([])
+    const [ data, setData ] = useState([])
     const [ countries, setCountries ] = useState([])
     const [ statuses, setStatuses ] = useState([])
     const [ buyerProfiles, setBuyerProfiles ] = useState([])
@@ -14,6 +14,7 @@ export const GeneralView = () => {
     const [ country, setCountry ] = useState('---')
     const [ buyerProfile, setBuyerProfile ] = useState('---')
     const [ status, setStatus ] = useState('---')
+    const [ titleFilter, setTitleFilter ] = useState('')
     const [ page, setPage ] = useState(1)
 
     const fetchData = async () => {
@@ -32,7 +33,7 @@ export const GeneralView = () => {
         }
     };
 
-    const fetchFilteredData = async (country, buyerProfile, status, page = 1) => {
+    const fetchFilteredData = async (country, buyerProfile, status, page = 0) => {
         try {
             const data = await getContents(country, buyerProfile, status, page);
             setData(data)
@@ -44,7 +45,7 @@ export const GeneralView = () => {
 
     const filterData = () => {
         setDataLoaded(false)
-        setPage(1)
+        setPage(0)
         fetchFilteredData(country, buyerProfile, status)
     }
 
@@ -64,7 +65,7 @@ export const GeneralView = () => {
     }
 
     const goBack = () => {
-        if (page > 1) {
+        if (page > 0) {
             setDataLoaded(false)
 
             const newPage = page - 1
@@ -96,7 +97,7 @@ export const GeneralView = () => {
                 <FilterDropdown attribute='Status' options={statuses} onSelect={selectOption}/>  
                 <button onClick={filterData}>Apply filters</button>
             </div>
-            { dataLoaded ? <Table data={data}/> : <h1>Loading...</h1>}
+            { dataLoaded ? <Table data={data} contentType='parentContent'/> : <h1>Loading...</h1>}
             <div className="pages">
                 <button onClick={goBack}>&lt;</button> 
                 <p className="page-info">Page: {page}</p>

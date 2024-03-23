@@ -14,11 +14,11 @@ export const GeneralTranslationsView = () => {
     const [ country, setCountry ] = useState('---')
     const [ buyerProfile, setBuyerProfile ] = useState('---')
     const [ status, setStatus ] = useState('---')
-    const [ page, setPage ] = useState(1)
+    const [ page, setPage ] = useState(0)
 
     const fetchData = async () => {
         try {
-            const data = await getContents();
+            const data = await getTranslatedContents();
             const countries = await getCountries();
             const statuses = await getStatuses();
             const buyerProfiles = await getBuyerProfiles();
@@ -32,7 +32,7 @@ export const GeneralTranslationsView = () => {
         }
     };
 
-    const fetchFilteredData = async (country, buyerProfile, status, page = 1) => {
+    const fetchFilteredData = async (country, buyerProfile, status, page = 0) => {
         try {
             const data = await getTranslatedContents(country, buyerProfile, status, page);
             setData(data)
@@ -44,7 +44,7 @@ export const GeneralTranslationsView = () => {
 
     const filterData = () => {
         setDataLoaded(false)
-        setPage(1)
+        setPage(0)
         fetchFilteredData(country, buyerProfile, status)
     }
 
@@ -64,7 +64,7 @@ export const GeneralTranslationsView = () => {
     }
 
     const goBack = () => {
-        if (page > 1) {
+        if (page > 0) {
             setDataLoaded(false)
 
             const newPage = page - 1
@@ -96,7 +96,7 @@ export const GeneralTranslationsView = () => {
                 <FilterDropdown attribute='Status' options={statuses} onSelect={selectOption}/>  
                 <button onClick={filterData}>Apply filters</button>
             </div>
-            { dataLoaded ? <Table data={data}/> : <h1>Loading...</h1>}
+            { dataLoaded ? <Table data={data} contentType='translatedContent' /> : <h1>Loading...</h1>}
             <div className="pages">
                 <button onClick={goBack}>&lt;</button> 
                 <p className="page-info">Page: {page}</p>
