@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 import { TextLabel } from './TextLabel';
 
 export const Table = (props) => {
-    let { headers, data, contentType } = props
+    let { headers, data } = props
     if (!headers){
         headers = data.length > 0 ? Object.keys(data[0]) : [];
     }
-    
+
     return (
         <table>
             <thead>
@@ -21,7 +21,7 @@ export const Table = (props) => {
                 {data.map((row, rowIndex) => (
                         <tr key={rowIndex}>
                             {headers.map(header => (
-                                <td key={`${header}-${rowIndex}`}><Link to={`/${contentType}/${row['id']}`}>{row[header]}</Link></td>
+                                <td key={`${header}-${rowIndex}`}><Link to={`/content/${row['id']}`}>{row[header]}</Link></td>
                             ))}
                         </tr>
                 ))}

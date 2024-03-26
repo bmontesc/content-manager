@@ -1,15 +1,14 @@
-const apiURL = 'https://content-manager-ihgp4c2pia-no.a.run.app'
+const apiURL = 'http://127.0.0.1:8000'
 
-export const getContents = (country = null, buyerProfile = null, status = null, pag = 0) => {
+export const getContents = (country = null, buyerProfile = null, status = null, title = null, pag = 0) => {
 
     let url = apiURL + '/contents?'
     if (country !== null && country !== '---') url = url + `code_country=${country}&`
     if (buyerProfile !== null && buyerProfile !== '---') url = url + `buyer_profile=${buyerProfile}&`
     if (status !== null && status !== '---') url = url + `status=${status}&`
+    if (title !== null) url = url + `title=${title}&`
 
     url = url + 'pag=' + pag
-
-    console.log(url)
 
     return fetch(`${url}`)
     .then(response => {
@@ -20,7 +19,7 @@ export const getContents = (country = null, buyerProfile = null, status = null, 
     })
     .then(data => {
         return Object.values(data).map(object => ({
-            id: object.local_id,
+            id: object.id,
             Title: object.title,
             Status: object.status,
             Country_Code: object.country_code,
@@ -34,8 +33,32 @@ export const getContents = (country = null, buyerProfile = null, status = null, 
       });
 }
 
+export const getContent = (id) => {
+    console.log(id)
+    let url = apiURL + `/contents/${id}`
+
+    return fetch(`${url}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('No se pudieron obtener los contenidos');
+            }
+            return response.json();
+    })
+    .then(data => {
+        console.log(data)
+        return data;
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error.message);
+        throw error;
+      });
+}
+
+
 export const getCountries = () => {
-    return fetch(`${apiURL}/contents/country_codes`)
+
+    let url = apiURL + '/country_codes'
+    return fetch(url)
     .then(response => {
         if (!response.ok) {
             throw new Error('No se pudieron obtener los paises');
@@ -49,7 +72,7 @@ export const getCountries = () => {
 }
 
 export const getStatuses = () => {
-    return fetch(`${apiURL}/contents/statuses`)
+    return fetch(`${apiURL}/statuses`)
     .then(response => {
         if (!response.ok) {
             throw new Error('No se pudieron obtener los paises');
@@ -63,7 +86,7 @@ export const getStatuses = () => {
 }
 
 export const getBuyerProfiles = () => {
-    return fetch(`${apiURL}/contents/buyer_profiles`)
+    return fetch(`${apiURL}/buyer_profiles`)
     .then(response => {
         if (!response.ok) {
             throw new Error('No se pudieron obtener los paises');
@@ -78,7 +101,7 @@ export const getBuyerProfiles = () => {
 
 export const getTranslatedContents = (country = null, buyerProfile = null, status = null, pag = 0) => {
 
-    let url = apiURL + '/contents/translations?'
+    let url = apiURL + '/translations?'
     if (country !== null && country !== '---') url = url + `code_country=${country}&`
     if (buyerProfile !== null && buyerProfile !== '---') url = url + `buyer_profile=${buyerProfile}&`
     if (status !== null && status !== '---') url = url + `status=${status}&`
@@ -94,7 +117,7 @@ export const getTranslatedContents = (country = null, buyerProfile = null, statu
     })
     .then(data => {
         return Object.values(data).map(object => ({
-            id: object.local_id,
+            id: object.id,
             Title: object.title,
             Status: object.status,
             Country_Code: object.country_code,

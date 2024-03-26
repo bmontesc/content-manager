@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { DataGrid } from "../components/DataGrid"
-import { getContents } from "../data/getData"
+import { getContent } from "../data/getData"
 import { useParams } from 'react-router-dom';
 import './DetailView.css'
 
@@ -12,9 +12,9 @@ export const DetailView = () => {
 
     const fetchData = async () => {
         try {
-            let data = await getContents();
-            data = data.filter(data => data.id == id)[0]
+            let data = await getContent(id);
             setData(data)
+            console.log(data)
             setDataLoaded(true)
         } catch (error) {
             console.error('Error al obtener los datos', error);

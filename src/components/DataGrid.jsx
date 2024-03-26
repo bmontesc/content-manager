@@ -9,7 +9,7 @@ export const DataGrid = (props) => {
 
     return (
         <>
-            <h1>{data['Title']}</h1>
+            <h1>{data['title']}</h1>
             <div className='data-grid'>
                 {headers.map(header => <Data key={header} title={header} content={data[header]}/>)}
             </div>

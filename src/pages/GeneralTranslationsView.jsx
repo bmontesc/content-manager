@@ -75,7 +75,7 @@ export const GeneralTranslationsView = () => {
 
     const goForward = () => {
         setDataLoaded(false)
-            
+
         const newPage = page + 1
         setPage(newPage)
         fetchFilteredData(country, buyerProfile, status, newPage)
@@ -91,14 +91,14 @@ export const GeneralTranslationsView = () => {
             <h2>Translated Content</h2>
             <input type="text" name="" id="" placeholder="🔎 Search by title..." />
             <div className="filters">
-                <FilterDropdown attribute='Buyer_Profile' options={buyerProfiles} onSelect={selectOption}/>  
-                <FilterDropdown attribute='Country' options={countries} onSelect={selectOption}/>  
-                <FilterDropdown attribute='Status' options={statuses} onSelect={selectOption}/>  
+                <FilterDropdown attribute='Buyer_Profile' options={buyerProfiles} onSelect={selectOption}/>
+                <FilterDropdown attribute='Country' options={countries} onSelect={selectOption}/>
+                <FilterDropdown attribute='Status' options={statuses} onSelect={selectOption}/>
                 <button onClick={filterData}>Apply filters</button>
             </div>
-            { dataLoaded ? <Table data={data} contentType='translatedContent' /> : <h1>Loading...</h1>}
+            { dataLoaded ? <Table data={data} /> : <h1>Loading...</h1>}
             <div className="pages">
-                <button onClick={goBack}>&lt;</button> 
+                <button onClick={goBack}>&lt;</button>
                 <p className="page-info">Page: {page}</p>
                 <button onClick={goForward}>&gt;</button>
             </div>

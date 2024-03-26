@@ -11,10 +11,9 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path='/parentContent' element={<GeneralView />}/> 
-          <Route path='/parentContent/:id' element={<DetailView />}/>
+          <Route path='/content' element={<GeneralView />}/>
+          <Route path='/content/:id' element={<DetailView />}/>
           <Route path='/translatedContent' element={<GeneralTranslationsView />} />
-          <Route path='/translatedContent/:id' element={<DetailTranslationsView />} />
         </Routes>
       </BrowserRouter>
     </>
