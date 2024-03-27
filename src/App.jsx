@@ -2,7 +2,9 @@ import { NavBar } from './components/NavBar'
 import { GeneralView } from './pages/GeneralView'
 import { DetailView } from './pages/DetailView'
 import { GeneralTranslationsView } from './pages/GeneralTranslationsView'
-import { DetailTranslationsView } from './pages/DetailTranslationsView'
+import { HomeView } from './pages/HomeView'
+import { NewContentView } from './pages/NewContentView'
+import { PlanificationView } from './pages/PlanificationView'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 function App() {
 
@@ -11,9 +13,12 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <Routes>
+          <Route path='/' element={<HomeView />}/>
           <Route path='/content' element={<GeneralView />}/>
           <Route path='/content/:id' element={<DetailView />}/>
+          <Route path='/newcontent' element={<NewContentView />}/>
           <Route path='/translatedContent' element={<GeneralTranslationsView />} />
+          <Route path='/planification' element={<PlanificationView />} />
         </Routes>
       </BrowserRouter>
     </>

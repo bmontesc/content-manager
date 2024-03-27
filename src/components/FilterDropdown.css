@@ -1,8 +1,21 @@
 .filter {
-    margin: 10px;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
 
-.filter select {
-    margin: 0 5px;
-    padding: 5px;
-}
+  .filter label {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+
+  .filter select {
+    width: 100%; /* Se expandirá hasta el máximo del contenedor padre */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+

@@ -1,0 +1,36 @@
+.new-content-view-body {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.new-content-view-body form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* O el ancho que desees, que sea coherente con tu diseño */
+}
+
+.new-content-view-body .filters {
+  display: flex;
+  flex-wrap: wrap; /* Si es necesario para manejar responsividad */
+  justify-content: space-between; /* Ajusta según la alineación deseada */
+  width: 100%;
+}
+
+
+input, textarea {
+  width: 100%; /* Se expandirá hasta el máximo del contenedor padre */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+
+
+
+

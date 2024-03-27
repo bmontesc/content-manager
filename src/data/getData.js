@@ -1,4 +1,4 @@
-const apiURL = 'http://127.0.0.1:8000'
+export const apiURL = 'http://127.0.0.1:8000'
 
 export const getContents = (country = null, buyerProfile = null, status = null, title = null, pag = 0) => {
 
@@ -124,6 +124,39 @@ export const getTranslatedContents = (country = null, buyerProfile = null, statu
             Buyer_Profile: object.buyer_profile,
             Link: object.link
         }));
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error.message);
+        throw error;
+      });
+}
+
+export const getContentManagers = () => {
+
+    let url = apiURL + '/users/content_managers'
+    return fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('No se pudieron obtener los content managers');
+            }
+            return response.json();
+    })
+    .catch(error => {
+        console.error('Error en la solicitud:', error.message);
+        throw error;
+      });
+}
+
+
+export const getPlanningStatus = () => {
+
+    let url = apiURL + '/planningstatus'
+    return fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('No se pudieron obtener los planning status');
+            }
+            return response.json();
     })
     .catch(error => {
         console.error('Error en la solicitud:', error.message);

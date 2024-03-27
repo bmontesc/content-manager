@@ -1,7 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import './HomeView.css'
 
-const Home = (props) => {
+export const HomeView = (props) => {
   const { loggedIn, email } = props
   const navigate = useNavigate()
 
@@ -10,11 +11,11 @@ const Home = (props) => {
   }
 
   return (
-    <div className="mainContainer">
+    <div className="home-view-body">
       <div className={'titleContainer'}>
         <div>Welcome!</div>
+        <div>This is the home page.</div>
       </div>
-      <div>This is the home page.</div>
       <div className={'buttonContainer'}>
         <input
           className={'inputButton'}
@@ -28,4 +29,3 @@ const Home = (props) => {
   )
 }
 
-export default Home
