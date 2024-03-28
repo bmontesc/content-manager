@@ -84,7 +84,6 @@ export const NewContentView = () => {
     const postData = {
       title,
       area: area === "---" ? null : area,
-      title,
       country_code: country === "---" ? null : country,
       cluster,
       owner_id: owner === "---" ? null : parseInt(owner),

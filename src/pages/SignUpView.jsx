@@ -46,7 +46,7 @@ export const SignUpView = (props) => {
             required
           />
         </label>
-        {!validEmail && email && <p className="validation-message">Not validEmail</p>}
+        {!validEmail && email && <p className="validation-message">Not valid email</p>}
         <button type="submit" disabled={!validEmail}>Submit</button>
       </form>
     </div>
