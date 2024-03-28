@@ -1,10 +1,14 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import './HomeView.css'
+import { useState } from 'react'
+import { Link } from "react-router-dom";
 
 export const HomeView = (props) => {
-  const { loggedIn, email } = props
+  const { email } = props
   const navigate = useNavigate()
+
+  const [loggedIn, setLoggedIn] = useState(false)
 
   const onButtonClick = () => {
     // You'll update this function later
@@ -24,6 +28,7 @@ export const HomeView = (props) => {
           value={loggedIn ? 'Log out' : 'Log in'}
         />
         {loggedIn ? <div>Your email address is {email}</div> : <div />}
+        {!loggedIn && <Link to="/signup"><h3>Sign up</h3></Link>}
       </div>
     </div>
   )

@@ -43,13 +43,18 @@ button {
     color: #213547;
     background-color: #ffffff;
   }
-  button {
+  button:not(:disabled) {
     background-color: #c2c2c2;
   }
 }
 
-button:hover{
+button:not(:disabled):hover{
   background-color: #a3a5a8;
   border: 1px solid #000000;
 }
 
+/* Estilos adicionales para el botón cuando está deshabilitado */
+button:disabled {
+  background-color: #e7e4e4; /* Color de fondo más oscuro o diferente para indicar que está deshabilitado */
+  cursor: not-allowed; /* Cambiar el cursor para indicar que no se puede hacer click */
+}

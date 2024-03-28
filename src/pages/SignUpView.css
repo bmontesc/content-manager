@@ -1,0 +1,61 @@
+/* Ajustes en el cuerpo de la vista para mejorar el centrado y el espaciado */
+.signup-view-body {
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color); /* Utiliza la variable de color de fondo */
+  color: var(--color); /* Utiliza la variable de color de texto */
+  border-radius: 8px; /* Suaviza los bordes */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Añade sombra para profundidad */
+}
+
+/* Mejoras en el formulario para que se vea más moderno y centrado */
+.email-form {
+  border: none; /* Remueve el borde predeterminado */
+  width: 80%; /* Ajuste de ancho para mobile-first */
+  max-width: 500px; /* Ancho máximo para evitar que sea demasiado grande en pantallas grandes */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo claro para contraste */
+  border-radius: 8px; /* Bordes suavizados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sutil sombra */
+}
+
+/* Mejoras específicas para los inputs y labels */
+.email-form input[type=email] {
+  width: 100%; /* Aprovecha el ancho disponible */
+  padding: 8px;
+  margin: 10px 0; /* Espacio arriba y abajo */
+  border-radius: 8px; /* Bordes suavizados */
+  border: 1px solid #ddd; /* Borde sutil */
+  background-color: #fff; /* Fondo blanco */
+}
+
+.email-form label {
+  width: 100%; /* Asegura que el label usa todo el ancho disponible */
+  color: var(--color); /* Utiliza la variable de color de texto */
+  font-weight: normal; /* Peso normal para no sobresalir demasiado */
+}
+
+/* Se asegura de que los botones tengan un aspecto coherente con el esquema general */
+.email-form button {
+  width: 100%; /* Ajusta el botón al ancho completo del formulario para un look moderno */
+  margin-top: 12px; /* Espacio antes del botón */
+}
+
+/* Mejora la visibilidad de los enlaces dentro de la descripción */
+.signup-view-body a {
+  color: #4A90E2; /* Un azul más claro para mayor visibilidad */
+  text-decoration: underline; /* Subraya para indicar claramente que es un enlace */
+}
+
+.signup-view-body a:hover {
+  color: #3071a9; /* Oscurece el azul al pasar el mouse */
+}
+

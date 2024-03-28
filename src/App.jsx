@@ -5,6 +5,7 @@ import { GeneralTranslationsView } from './pages/GeneralTranslationsView'
 import { HomeView } from './pages/HomeView'
 import { NewContentView } from './pages/NewContentView'
 import { PlanificationView } from './pages/PlanificationView'
+import { SignUpView } from './pages/SignUpView'
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/newcontent' element={<NewContentView />}/>
           <Route path='/translatedContent' element={<GeneralTranslationsView />} />
           <Route path='/planification' element={<PlanificationView />} />
+          <Route path='/signup' element={<SignUpView />} />
         </Routes>
       </BrowserRouter>
     </>
