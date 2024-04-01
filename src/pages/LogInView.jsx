@@ -48,6 +48,8 @@ export const LogInView = (props) => {
 
       const data = await response.json();
       const accessToken = data.access_token
+      // Almacenar el token en localStorage
+      localStorage.setItem('accessToken', accessToken);
       setAuth({ email, pwd, accessToken });
       navigate(from, { replace: true });
       // Maneja la respuesta. Por ejemplo, podrías redirigir al usuario o mostrar un mensaje de éxito
