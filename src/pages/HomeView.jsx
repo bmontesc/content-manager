@@ -16,6 +16,8 @@ export const HomeView = () => {
 
   const handleClick = (e) => {
 
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('email');
     setAuth({});
     navigate('/');
 }

@@ -1,0 +1,16 @@
+1.
+    Se crea un contexto con useContext
+
+    AuthContext = useContext({})
+    
+   export const AuthProvider = () => {
+        [auth, setAuth] = useState({}) // se crea un estado con el objeto que almacenará la info de autorización
+        
+        <AuthContext.Provider value={{auth, setAuth}}>
+            {children}
+        </AuthContext.Provider>
+
+    }
+
+2.
+    Se envuelve la app en el AuthProvider

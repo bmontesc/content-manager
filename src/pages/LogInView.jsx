@@ -37,6 +37,8 @@ export const LogInView = (props) => {
       formData.append('username', email);
       formData.append('password', pwd);
     console.log(formData)
+    console.log(email)
+    console.log(pwd)
     console.log(JSON.stringify(formData))
 
     try {
@@ -50,6 +52,7 @@ export const LogInView = (props) => {
       const accessToken = data.access_token
       // Almacenar el token en localStorage
       localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem('email', email);
       setAuth({ email, pwd, accessToken });
       navigate(from, { replace: true });
       // Maneja la respuesta. Por ejemplo, podrías redirigir al usuario o mostrar un mensaje de éxito

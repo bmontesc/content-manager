@@ -1,4 +1,4 @@
-export const apiURL = 'http://127.0.0.1:8000'
+export const apiURL = 'https://content-manager-ihgp4c2pia-no.a.run.app'
 
 export const getContents = (country = null, buyerProfile = null, status = null, title = null, pag = 0) => {
 
